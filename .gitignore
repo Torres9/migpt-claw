@@ -1,2 +1,4 @@
 dist/
 node_modules/
+mi-rust.node
+target

@@ -12,7 +12,7 @@
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsup",
+    "build": "cargo-cp-artifact -ac open_xiaoai_server src/mi-rust.node -- cargo build --release --message-format=json-render-diagnostics && tsup",
     "dev": "tsup --watch"
   },
   "files": [
@@ -39,7 +39,11 @@
     ]
   },
   "dependencies": {
+    "@mi-gpt/config": "^1.1.0",
+    "@mi-gpt/engine": "^1.2.1",
+    "@mi-gpt/utils": "^1.1.1",
     "axios": "^1.13.6",
+    "cargo-cp-artifact": "^0.1.9",
     "node-fetch": "^3.3.2",
     "pako": "^2.1.0"
   },
