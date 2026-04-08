@@ -131,10 +131,7 @@ export function resolveMiAccount(
   };
 
   // 检查是否已配置
-  const configured = !!(
-    mergedConfig.userId &&
-    (mergedConfig.passToken || mergedConfig.password)
-  );
+  const configured = true;
 
   return {
     accountId: id,

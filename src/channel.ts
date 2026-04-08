@@ -133,12 +133,6 @@ export const miGPTPlugin: ChannelPlugin<ResolvedMiAccount> = {
       } as ExtendedOpenClawConfig;
     },
     validateInput: ({ input }: { input: any }) => {
-      if (!input.userId) {
-        return '小米 ID (userId) 是必需的';
-      }
-      if (!input.passToken && !input.password) {
-        return '需要提供 passToken 或 password';
-      }
       return null;
     },
   },
