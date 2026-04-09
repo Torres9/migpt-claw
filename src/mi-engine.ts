@@ -70,7 +70,7 @@ class OpenXiaoAIEngine {
         line?.payload?.results?.[0]?.text
       ) {
         const text = line.payload.results[0].text;
-        this.dispatchToOpenClaw(text);
+        this.dispatchToOpenClaw(text, line?.header?.id);
       }
     } else if (e.event === "kws") {
       const keyword = e.data;
@@ -81,11 +81,10 @@ class OpenXiaoAIEngine {
   /**
    * 将用户消息分派到 OpenClaw，AI 回复通过 SpeakerManager 播放
    */
-  private async dispatchToOpenClaw(text: string) {
+  private async dispatchToOpenClaw(text: string, msgId: string) {
     const { account, cfg, log } = this.gatewayCtx!;
     const deviceName = account.name ?? account.accountId;
     const timestamp = Date.now();
-    const msgId = randomUUID();
 
     log?.info(`[migpt:${account.accountId}] Received message: ${text.slice(0, 50)}...`);
 
